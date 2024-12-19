@@ -1,0 +1,20 @@
+- name: Render Dockerfile template
+  template:
+    src: "{{ playbook_dir }}/roles/metrics/templates/Dockerfile.j2"
+    dest: "{{ playbook_dir }}/roles/metrics/templates/Dockerfile"
+
+- name: Build Metrics Docker Image
+  docker_image:
+    name: metrics-image
+    source: build
+    build:
+      path: "{{ playbook_dir }}/roles/metrics/templates"
+
+- name: Deploy Metrics Container
+  docker_container:
+    name: metrics-container
+    image: metrics-image
+    ports:
+      - "5000:5000"
+    state: started
+

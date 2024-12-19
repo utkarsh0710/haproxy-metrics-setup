@@ -1,0 +1,12 @@
+- name: Deploy HAProxy and Metrics Containers
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Include HAProxy role
+      include_role:
+        name: haproxy
+
+    - name: Include Metrics role
+      include_role:
+        name: metrics
+

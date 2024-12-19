@@ -1,0 +1,8 @@
+- name: Deploy HAProxy Container
+  docker_container:
+    name: "{{ haproxy_container_name }}"
+    image: "{{ haproxy_image }}"
+    ports:
+      - "{{ haproxy_port }}:80"
+    state: started
+

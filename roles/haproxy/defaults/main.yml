@@ -1,0 +1,4 @@
+haproxy_image: "utkarsh0710/haproxy-fixed"
+haproxy_container_name: "haproxy-container"
+haproxy_port: 80
+
